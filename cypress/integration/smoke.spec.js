@@ -6,5 +6,4 @@ describe("smoke tests", () => {
 
     });
 
-
 });

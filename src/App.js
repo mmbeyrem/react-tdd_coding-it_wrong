@@ -1,11 +1,11 @@
 import React from 'react'
 
 export default class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    state = {
+        beyrem: "yes"
+    };
     render() {
-        return <div className='hello'>  Hello word  </div>;
+        return <div className='hello'>  Hello word {this.state.beyrem}  </div>;
     }
 
 }

@@ -7,13 +7,35 @@
   "author": "Josh Justice <me@codingitwrong.com>",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.1.0",
     "cypress": "^4.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-jest": "^23.8.1",
+    "eslint-plugin-react": "^7.18.3",
     "parcel-bundler": "^1.12.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },
   "scripts": {
     "start": "parcel index.html",
+    "lint": "eslint src/**/* test/**/* cypress/integration/*/.js",
+    "test:u": "cross-env NODE_ENV=test jest \"test/.*.js\"",
     "e2e": "cypress open"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.0",
+    "jest": "^25.1.0"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>test/setup.js"
   }
 }
