@@ -11,7 +11,7 @@ export default class NewRestaurentForm extends Component {
         const { onSave } = this.props;
         onSave(inputText);
     }
- 
+
     render() {
         const { inputText } = this.state;
         return <form>

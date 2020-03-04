@@ -28489,12 +28489,22 @@ var RestaurantListPage = /*#__PURE__*/function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(RestaurantListPage)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      RestaurantNames: []
+      RestaurantNames: [],
+      showNewRestaurantForm: false
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleAddRestaurent", function (newRestaurantName) {
       _this.setState({
+        showNewRestaurantForm: false,
         RestaurantNames: [].concat(_toConsumableArray(_this.state.RestaurantNames), [newRestaurantName])
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleAddRestaurantButtonClick", function (e) {
+      e.preventDefault();
+
+      _this.setState({
+        showNewRestaurantForm: true
       });
     });
 
@@ -28504,12 +28514,15 @@ var RestaurantListPage = /*#__PURE__*/function (_Component) {
   _createClass(RestaurantListPage, [{
     key: "render",
     value: function render() {
-      var RestaurantNames = this.state.RestaurantNames;
+      var _this$state = this.state,
+          RestaurantNames = _this$state.RestaurantNames,
+          showNewRestaurantForm = _this$state.showNewRestaurantForm;
       return _react.default.createElement("div", null, _react.default.createElement("button", {
-        "data-test": "addRetaurantButton"
-      }, "Add  Restaurant"), _react.default.createElement(_NewRestaurentForm.default, {
+        "data-test": "addRetaurantButton",
+        onClick: this.handleAddRestaurantButtonClick
+      }, "Add  Restaurant"), showNewRestaurantForm ? _react.default.createElement(_NewRestaurentForm.default, {
         onSave: this.handleAddRestaurent
-      }), _react.default.createElement(_RestaurantList.default, {
+      }) : _react.default.createElement(_react.default.Fragment, null), _react.default.createElement(_RestaurantList.default, {
         restaurants: RestaurantNames
       }));
     }
@@ -28631,7 +28644,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64729" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54171" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
