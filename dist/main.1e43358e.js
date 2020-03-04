@@ -40607,15 +40607,21 @@ var NewRestaurentForm = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       var inputText = this.state.inputText;
-      return _react.default.createElement("form", null, _react.default.createElement(_reactMaterialize.TextInput, {
+      return _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_reactMaterialize.Col, _defineProperty({
+        s: 12,
+        l: 8
+      }, "l", 10), _react.default.createElement(_reactMaterialize.TextInput, {
         label: "Restaurant name",
         onChange: this.handleTextChange,
         value: inputText,
         "data-test": "newRestaurantName"
-      }), _react.default.createElement(_reactMaterialize.Button, {
+      })), _react.default.createElement(_reactMaterialize.Col, _defineProperty({
+        s: 12,
+        l: 4
+      }, "l", 2), _react.default.createElement(_reactMaterialize.Button, {
         onClick: this.handleSave,
         "data-test": "SaveNewRetaurantButton"
-      }, "Save"));
+      }, "Save")));
     }
   }]);
 
@@ -40743,14 +40749,14 @@ var RestaurantListPage = /*#__PURE__*/function (_Component) {
       var _this$state = this.state,
           RestaurantNames = _this$state.RestaurantNames,
           showNewRestaurantForm = _this$state.showNewRestaurantForm;
-      return _react.default.createElement("div", null, _react.default.createElement(_reactMaterialize.Button, {
+      return _react.default.createElement("div", null, _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_reactMaterialize.Button, {
         "data-test": "addRetaurantButton",
         onClick: this.handleAddRestaurantButtonClick
-      }, "Add  Restaurant"), showNewRestaurantForm ? _react.default.createElement(_NewRestaurentForm.default, {
+      }, "Add  Restaurant")), _react.default.createElement(_reactMaterialize.Row, null, showNewRestaurantForm ? _react.default.createElement(_NewRestaurentForm.default, {
         onSave: this.handleAddRestaurent
-      }) : _react.default.createElement(_react.default.Fragment, null), _react.default.createElement(_RestaurantList.default, {
+      }) : _react.default.createElement(_react.default.Fragment, null)), _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_RestaurantList.default, {
         restaurants: RestaurantNames
-      }));
+      })));
     }
   }]);
 
@@ -40770,6 +40776,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _RestaurantListPage = _interopRequireDefault(require("./RestaurantListPage.js"));
 
+var _reactMaterialize = require("react-materialize");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -40782,43 +40790,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var App = /*#__PURE__*/function (_React$Component) {
   _inherits(App, _React$Component);
 
   function App() {
-    var _getPrototypeOf2;
-
-    var _this;
-
     _classCallCheck(this, App);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      beyrem: "yes"
-    });
-
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(App).apply(this, arguments));
   }
 
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, " ", _react.default.createElement(_RestaurantListPage.default, null));
+      return _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_reactMaterialize.Col, {
+        s: 12,
+        m: 10,
+        l: 8,
+        offset: "m1 l2"
+      }, _react.default.createElement(_RestaurantListPage.default, null)));
     }
   }]);
 
@@ -40826,7 +40823,7 @@ var App = /*#__PURE__*/function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = App;
-},{"react":"node_modules/react/index.js","./RestaurantListPage.js":"src/RestaurantListPage.js"}],"src/main.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./RestaurantListPage.js":"src/RestaurantListPage.js","react-materialize":"node_modules/react-materialize/lib/index.js"}],"src/main.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -40870,7 +40867,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64729" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54171" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
