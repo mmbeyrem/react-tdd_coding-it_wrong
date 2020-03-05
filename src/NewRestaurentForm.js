@@ -24,7 +24,9 @@ export default class NewRestaurentForm extends Component {
                 </TextInput>
             </Col>
             <Col s={12} l={4} l={2}>
-                <Button onClick={this.handleSave}
+                <Button
+                    modal="close"
+                    onClick={this.handleSave}
                     data-test="SaveNewRetaurantButton">
                     Save
             </Button>

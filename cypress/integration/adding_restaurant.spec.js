@@ -3,11 +3,11 @@ describe("adding a restaurant", () => {
 
     it('displays the restaurant inthe list ', () => {
         cy.visit("localhost:1234");
-        cy.get('[data-test="newRestaurantName"]').should("not.exist");
+        cy.get('[data-test="newRestaurantName"]').should("not.visible");
         cy.get('[data-test="addRetaurantButton"]').click();
-        cy.get('[data-test="newRestaurantName"]').type(restaurantName);
+        cy.get('input[data-test="newRestaurantName"]').focus().type(restaurantName);
         cy.get('[data-test="SaveNewRetaurantButton"]').click();
-        cy.get('[data-test="newRestaurantName"]').should("not.exist");
+        cy.get('[data-test="newRestaurantName"]').should("not.visible");
         cy.contains(restaurantName);
     });
 

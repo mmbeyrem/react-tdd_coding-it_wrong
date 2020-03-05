@@ -40619,6 +40619,7 @@ var NewRestaurentForm = /*#__PURE__*/function (_Component) {
         s: 12,
         l: 4
       }, "l", 2), _react.default.createElement(_reactMaterialize.Button, {
+        modal: "close",
         onClick: this.handleSave,
         "data-test": "SaveNewRetaurantButton"
       }, "Save")));
@@ -40645,11 +40646,28 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var RestaurantList = function RestaurantList(_ref) {
   var restaurants = _ref.restaurants;
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("h3", null, "Restaurants"), _react.default.createElement(_reactMaterialize.Collection, null, restaurants.map(function (r) {
+  return _react.default.createElement(_reactMaterialize.Collection, {
+    header: "Restaurants"
+  }, restaurants.length === 0 ? _react.default.createElement(EmptyRestaurantListItem, null) : _react.default.createElement(RestaurantListItems, {
+    restaurants: restaurants
+  }));
+};
+
+var EmptyRestaurantListItem = function EmptyRestaurantListItem() {
+  return _react.default.createElement(_reactMaterialize.CollectionItem, {
+    style: {
+      color: 'gray'
+    }
+  }, " (no restaurants saved. )   ");
+};
+
+var RestaurantListItems = function RestaurantListItems(_ref2) {
+  var restaurants = _ref2.restaurants;
+  return restaurants.map(function (r) {
     return _react.default.createElement(_reactMaterialize.CollectionItem, {
       key: r
     }, r);
-  })));
+  });
 };
 
 var _default = RestaurantList;
@@ -40721,22 +40739,12 @@ var RestaurantListPage = /*#__PURE__*/function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(RestaurantListPage)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      RestaurantNames: [],
-      showNewRestaurantForm: false
+      RestaurantNames: []
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleAddRestaurent", function (newRestaurantName) {
       _this.setState({
-        showNewRestaurantForm: false,
         RestaurantNames: [].concat(_toConsumableArray(_this.state.RestaurantNames), [newRestaurantName])
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleAddRestaurantButtonClick", function (e) {
-      e.preventDefault();
-
-      _this.setState({
-        showNewRestaurantForm: true
       });
     });
 
@@ -40746,15 +40754,17 @@ var RestaurantListPage = /*#__PURE__*/function (_Component) {
   _createClass(RestaurantListPage, [{
     key: "render",
     value: function render() {
-      var _this$state = this.state,
-          RestaurantNames = _this$state.RestaurantNames,
-          showNewRestaurantForm = _this$state.showNewRestaurantForm;
-      return _react.default.createElement("div", null, _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_reactMaterialize.Button, {
-        "data-test": "addRetaurantButton",
-        onClick: this.handleAddRestaurantButtonClick
-      }, "Add  Restaurant")), _react.default.createElement(_reactMaterialize.Row, null, showNewRestaurantForm ? _react.default.createElement(_NewRestaurentForm.default, {
+      var RestaurantNames = this.state.RestaurantNames;
+      return _react.default.createElement("div", null, _react.default.createElement(_reactMaterialize.Modal, {
+        id: "",
+        actions: [],
+        header: "Restaurant name",
+        trigger: _react.default.createElement(_reactMaterialize.Button, {
+          "data-test": "addRetaurantButton"
+        }, " Add  Restaurant")
+      }, _react.default.createElement(_NewRestaurentForm.default, {
         onSave: this.handleAddRestaurent
-      }) : _react.default.createElement(_react.default.Fragment, null)), _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_RestaurantList.default, {
+      })), _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_RestaurantList.default, {
         restaurants: RestaurantNames
       })));
     }
