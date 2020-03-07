@@ -21,6 +21,7 @@
     "eslint-plugin-cypress": "^2.10.3",
     "eslint-plugin-jest": "^23.8.1",
     "eslint-plugin-react": "^7.18.3",
+    "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.12.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
@@ -29,7 +30,8 @@
     "start": "parcel index.html",
     "lint": "eslint src/**/* test/**/* cypress/integration/*/.js",
     "test:u": "cross-env NODE_ENV=test jest \"test/.*.js\"",
-    "e2e": "cypress open"
+    "e2e": "cypress open",
+    "ci": "cross-env run-p start e2e"
   },
   "dependencies": {
     "cross-env": "^7.0.0",
