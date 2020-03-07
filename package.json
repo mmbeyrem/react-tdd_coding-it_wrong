@@ -30,7 +30,7 @@
     "start": "parcel index.html",
     "lint": "eslint src/**/* test/**/* cypress/integration/*/.js",
     "test:u": "cross-env NODE_ENV=test jest \"test/.*.js\"",
-    "e2e": "cypress open",
+    "e2e": "cypress run",
     "ci": "cross-env run-p start e2e"
   },
   "dependencies": {
