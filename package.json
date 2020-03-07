@@ -31,6 +31,7 @@
     "lint": "eslint src/**/* test/**/* cypress/integration/*/.js",
     "test:u": "cross-env NODE_ENV=test jest \"test/.*.js\"",
     "e2e": "cypress run",
+    "cy:open": "cypress open",
     "ci": "cross-env run-p start e2e"
   },
   "dependencies": {

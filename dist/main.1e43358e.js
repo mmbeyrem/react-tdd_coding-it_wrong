@@ -40618,11 +40618,17 @@ var NewRestaurentForm = /*#__PURE__*/function (_Component) {
       })), _react.default.createElement(_reactMaterialize.Col, _defineProperty({
         s: 12,
         l: 4
-      }, "l", 2), _react.default.createElement(_reactMaterialize.Button, {
+      }, "l", 2), _react.default.createElement(_reactMaterialize.Row, null, " ", _react.default.createElement(_reactMaterialize.Button, {
         modal: "close",
         onClick: this.handleSave,
         "data-test": "SaveNewRetaurantButton"
-      }, "Save")));
+      }, "Save")), _react.default.createElement(_reactMaterialize.Row, null, " ", _react.default.createElement(_reactMaterialize.Button, {
+        style: {
+          "background-color": '#FF3377'
+        },
+        modal: "close",
+        "data-test": "CancelSaveNewRetaurantButton"
+      }, "Cancel"))));
     }
   }]);
 
@@ -40877,7 +40883,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55498" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55984" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

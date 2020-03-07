@@ -24,14 +24,21 @@ export default class NewRestaurentForm extends Component {
                 </TextInput>
             </Col>
             <Col s={12} l={4} l={2}>
-                <Button
+                <Row> <Button
                     modal="close"
                     onClick={this.handleSave}
                     data-test="SaveNewRetaurantButton">
                     Save
-            </Button>
+            </Button></Row>
+
+                <Row> <Button
+                    style={{ "background-color": '#FF3377' }}
+                    modal="close"
+                    data-test="CancelSaveNewRetaurantButton">
+                    Cancel
+            </Button></Row>
             </Col>
-        </Row>
+        </Row >
     }
 }
 
