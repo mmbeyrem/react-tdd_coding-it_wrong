@@ -23,4 +23,4 @@ jobs:
             - ~/.cache ## cache both yarn and Cypress!
       - run: yarn test:u
       - run: npm install -g wait-on
-      - run: 
+      - run: npm run ci
