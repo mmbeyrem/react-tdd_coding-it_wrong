@@ -7,8 +7,9 @@ describe("NewRestaurentForm", () => {
         it("calls the onSave handler", () => {
             const savehandler = jest.fn();
             var wrapper = mount(<NewRestaurentForm onSave={savehandler} />);
-            wrapper
-                .find('input[data-test="newRestaurantName"]')
+            const newRestaurantField = wrapper
+                .find('input[data-test="newRestaurantName"]');
+            newRestaurantField
                 .simulate('change', { target: { value: 'Sushi Place' } });
             wrapper
                 .find('button[data-test="SaveNewRetaurantButton"]')
@@ -16,6 +17,9 @@ describe("NewRestaurentForm", () => {
 
             expect(savehandler)
                 .toHaveBeenCalledWith('Sushi Place');
+            expect(wrapper
+                .find('input[data-test="newRestaurantName"]').props().value)
+                .toBe('');
         })
 
     })

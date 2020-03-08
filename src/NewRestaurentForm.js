@@ -10,6 +10,7 @@ export default class NewRestaurentForm extends Component {
         const { inputText } = this.state;
         const { onSave } = this.props;
         onSave(inputText);
+        this.setState({ inputText: '' })
     }
 
     render() {
@@ -32,7 +33,7 @@ export default class NewRestaurentForm extends Component {
             </Button></Row>
 
                 <Row> <Button
-                    style={{ "background-color": '#FF3377' }}
+                    style={{ backgroundColor: '#FF3377' }}
                     modal="close"
                     data-test="CancelSaveNewRetaurantButton">
                     Cancel

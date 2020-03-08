@@ -40598,6 +40598,10 @@ var NewRestaurentForm = /*#__PURE__*/function (_Component) {
       var inputText = _this.state.inputText;
       var onSave = _this.props.onSave;
       onSave(inputText);
+
+      _this.setState({
+        inputText: ''
+      });
     });
 
     return _this;
@@ -40624,7 +40628,7 @@ var NewRestaurentForm = /*#__PURE__*/function (_Component) {
         "data-test": "SaveNewRetaurantButton"
       }, "Save")), _react.default.createElement(_reactMaterialize.Row, null, " ", _react.default.createElement(_reactMaterialize.Button, {
         style: {
-          "background-color": '#FF3377'
+          backgroundColor: '#FF3377'
         },
         modal: "close",
         "data-test": "CancelSaveNewRetaurantButton"
@@ -40883,7 +40887,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55984" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52119" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
